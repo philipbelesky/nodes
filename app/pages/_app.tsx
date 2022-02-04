@@ -1,16 +1,16 @@
 import type { AppProps } from 'next/app'
-import { Provider as ReduxProvider } from 'react-redux'
-import { store } from '$'
+// import { Provider as ReduxProvider } from 'react-redux'
+// import { store } from '$'
 
 import 'tailwindcss/tailwind.css'
-import { SessionManager } from '@/features/common/context/session'
+// import { SessionManager } from '@/features/common/context/session'
 
 const NodePen = ({ Component, pageProps }: AppProps): React.ReactElement => {
   return (
-    <ReduxProvider store={store}>
-      <SessionManager>
-        <Component {...pageProps} />
-      </SessionManager>
+    <>
+      {/* <SessionManager> */}
+      <Component {...pageProps} />
+      {/* </SessionManager> */}
       <style global jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nova+Mono&display=swap');
@@ -45,7 +45,7 @@ const NodePen = ({ Component, pageProps }: AppProps): React.ReactElement => {
           outline: none;
         }
       `}</style>
-    </ReduxProvider>
+    </>
   )
 }
 

@@ -4,6 +4,25 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = withBundleAnalyzer({
     distDir: 'build',
+    redirects: async () => {
+      return [
+        {
+          source: '/gh',
+          destination: '/',
+          permanent: false
+        },
+        {
+          source: '/gh/:any*',
+          destination: '/',
+          permanent: false
+        },
+        {
+          source: '/legal/:any*',
+          destination: '/',
+          permanent: false
+        }
+      ]
+    },
     webpack: (config) => {
       config.resolve.fallback = {
         child_process: false,

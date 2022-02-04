@@ -1,8 +1,8 @@
 import React from 'react'
-import nookies from 'nookies'
+// import nookies from 'nookies'
 import { NextPage, GetServerSideProps } from 'next'
 import { UserProfile } from '@/features/user-profile'
-import { ApolloClient, createHttpLink, gql, InMemoryCache } from '@apollo/client'
+// import { ApolloClient, createHttpLink, gql, InMemoryCache } from '@apollo/client'
 import { useSessionManager } from '@/features/common/context/session'
 import { ApolloContext } from '@/features/common/context/apollo'
 import Head from 'next/head'
@@ -27,48 +27,49 @@ const UserProfilePage: NextPage<UserProfilePageProps> = (user) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps<UserProfilePageProps> = async (context) => {
-  try {
-    const { user: username } = context.query
+export const getServerSideProps: GetServerSideProps<UserProfilePageProps> = async (_context) => {
+  return { redirect: { destination: '/', permanent: false } }
+  // try {
+  //   const { user: username } = context.query
 
-    const cookie = nookies.get(context, { path: '/' })
+  //   const cookie = nookies.get(context, { path: '/' })
 
-    const client = new ApolloClient({
-      ssrMode: true,
-      link: createHttpLink({
-        uri: process?.env?.NEXT_PUBLIC_NP_API_ENDPOINT ?? 'http://localhost:4000/graphql',
-        credentials: 'same-origin',
-        headers: {
-          authorization: cookie.token,
-        },
-      }),
-      cache: new InMemoryCache(),
-    })
+  //   const client = new ApolloClient({
+  //     ssrMode: true,
+  //     link: createHttpLink({
+  //       uri: process?.env?.NEXT_PUBLIC_NP_API_ENDPOINT ?? 'http://localhost:4000/graphql',
+  //       credentials: 'same-origin',
+  //       headers: {
+  //         authorization: cookie.token,
+  //       },
+  //     }),
+  //     cache: new InMemoryCache(),
+  //   })
 
-    const { data, error } = await client.query({
-      query: gql`
-        query GetPublicUser($username: String!) {
-          publicUserByUsername(username: $username) {
-            username
-            photoUrl
-          }
-        }
-      `,
-      variables: {
-        username,
-      },
-    })
+  //   const { data, error } = await client.query({
+  //     query: gql`
+  //       query GetPublicUser($username: String!) {
+  //         publicUserByUsername(username: $username) {
+  //           username
+  //           photoUrl
+  //         }
+  //       }
+  //     `,
+  //     variables: {
+  //       username,
+  //     },
+  //   })
 
-    if (!data || !data.publicUserByUsername || !!error) {
-      return { notFound: true }
-    }
+  //   if (!data || !data.publicUserByUsername || !!error) {
+  //     return { notFound: true }
+  //   }
 
-    const user = data.publicUserByUsername
+  //   const user = data.publicUserByUsername
 
-    return { props: user }
-  } catch {
-    return { notFound: true }
-  }
+  //   return { props: user }
+  // } catch {
+  //   return { notFound: true }
+  // }
 }
 
 export default UserProfilePage
