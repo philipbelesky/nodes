@@ -27,9 +27,9 @@ const Home: NextPage = () => {
       <AuthLayout>
         <div className="rounded-md bg-pale p-4 flex flex-col items-center">
           <img src="/nodepen-brand.svg" width="300" className="mb-2" alt="" />
-          <h1 className=" text-dark text-2xl font-semibold mt-2 mb-4">OFFLINE FOR MAINTENANCE</h1>
-          <div className="buttons">
-            <a
+          <h1 className=" text-dark text-2xl font-semibold mt-2 mb-4">OFFLINE</h1>
+          {/* <div className="buttons"> */}
+          {/* <a
               href="https://discourse.mcneel.com/t/introducing-nodepen-grasshopper-on-the-web/136249"
               className="w-full p-2 flex items-center justify-center text-lg text-dark font-medium rounded-md hover:bg-green hover:text-darkgreen"
             >
@@ -48,28 +48,28 @@ const Home: NextPage = () => {
                 />
               </svg>
               Updates
-            </a>
-            <a
-              href="mailto:chuck@nodepen.io"
-              className="w-full p-2 flex items-center justify-center text-lg text-dark font-medium rounded-md hover:bg-green hover:text-darkgreen"
+            </a> */}
+          <a
+            href="mailto:chuck@nodepen.io"
+            className="w-full p-2 flex items-center justify-center text-lg text-dark font-medium rounded-md hover:bg-green hover:text-darkgreen"
+          >
+            <svg
+              className="w-5 h-5 mr-2"
+              fill="none"
+              stroke="#333"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="none"
-                stroke="#333"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
-              Support
-            </a>
-          </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+            Support
+          </a>
+          {/* </div> */}
         </div>
       </AuthLayout>
       <style jsx>{`
