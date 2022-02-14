@@ -20,6 +20,21 @@ module.exports = withBundleAnalyzer({
           source: '/legal/:any*',
           destination: '/',
           permanent: false
+        },
+        {
+          source: '/signin',
+          destination: '/',
+          permanent: false
+        },
+        {
+          source: '/signup',
+          destination: '/',
+          permanent: false
+        },
+        {
+          source: '/pwr',
+          destination: '/',
+          permanent: false
         }
       ]
     },
