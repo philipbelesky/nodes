@@ -105,6 +105,11 @@ const SaveButton = (): React.ReactElement => {
           saveProgress.current = 33
           setSaveProgressMessage('Creating new graph')
         }
+
+        if (isNewGraph) {
+          router.push(`/${userRecord?.username}/gh/${graphId}`, undefined)
+          router.reload()
+        }
       })
       .catch(() => {
         saveProgress.current = 0
