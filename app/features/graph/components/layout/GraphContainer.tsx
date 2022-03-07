@@ -36,7 +36,10 @@ export const GraphContainer = (): React.ReactElement => {
           <div className="w-full h-full relative pointer-events-none">
             <div className="w-vw absolute" style={{ bottom: showGlideOverlay === 'md' ? 200 + 11 : 200 + 15 }}>
               <div className="w-full flex justify-end" style={{ paddingRight: showGlideOverlay === 'md' ? 9 : 16 }}>
-                <a href="https://www.glideapps.com/" target="_blank">
+                <a
+                  href="https://www.glideapps.com/?utm_campaign=NodePen%20Sponsorship%20-%202022&utm_source=nodepen-website&utm_content=banner"
+                  target="_blank"
+                >
                   <img
                     src={
                       showGlideOverlay === 'md'
